@@ -13,13 +13,13 @@ DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/democyber:latest
 steps:
 # Checkout the code
 - name: Checkout repository
-uses: ac�ons/checkout@v3
+uses: actions/checkout@v3
 # Install Java
 - name: Set up JDK 21
-uses: ac�ons/setup-java@v3
+uses: actions/setup-java@v3
 with:
 java-version: '21'
-distribu�on: 'temurin'
+distribution: 'temurin'
 
 # Compile Java code
 - name: Compile Java
