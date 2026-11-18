@@ -11,7 +11,7 @@ jobs:
     env:
       DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/democyber:latest
     steps:
-      # Checkout repository
+      # Checkout repository please
       - name: Checkout repository
         uses: actions/checkout@v3
       # Install Java
