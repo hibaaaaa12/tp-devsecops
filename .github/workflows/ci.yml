@@ -72,6 +72,18 @@ jobs:
       # Push Docker image sur Docker Hub
       - name: Push Docker image
         run: docker push $DOCKER_IMAGE_NAME
+      - name: Debug Sonar auth
+        env:
+          T: ${{ secrets.SONAR_TOKEN }}
+          O: ${{ secrets.SONAR_ORGANIZATION }}
+        run: |
+          echo "token length: ${#T}, org length: ${#O}"
+          echo "--- token valid?"
+          curl -s -u "$T:" https://sonarcloud.io/api/authentication/validate
+          echo
+          echo "--- org visible to this token?"
+          curl -s -u "$T:" "https://sonarcloud.io/api/organizations/search?organizations=$O"
+          echo
       # Run SonarCloud scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
