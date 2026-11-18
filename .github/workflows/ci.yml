@@ -68,3 +68,6 @@ jobs:
         with:
           name: trivy-report
           path: trivy-results.sarif
+      # Push Docker image sur Docker Hub
+      - name: Push Docker image
+        run: docker push $DOCKER_IMAGE_NAME
