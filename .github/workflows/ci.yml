@@ -63,7 +63,8 @@ jobs:
           severity: "CRITICAL,HIGH"
       # Upload the trivy report
       - name: Upload Trivy report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: trivy-report
-          path: trivy_results.sarif
+          path: trivy-results.sarif
